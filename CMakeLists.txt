@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.4)
+INCLUDE(CheckLibraryExists)
+INCLUDE(CheckFunctionExists)
+PROJECT(ubox C)
+#ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
+ADD_DEFINITIONS(-O2)
+aux_source_directory(. DIRSRCS)
+include_directories(loop_event)
+add_subdirectory(loop_event)
+include_directories(sub_dev)
+add_subdirectory(sub_dev)
+
+add_executable(main ${DIRSRCS})
+target_link_libraries(main pthread)
+target_link_libraries(main loop_event)
+target_link_libraries(main subdev)
+

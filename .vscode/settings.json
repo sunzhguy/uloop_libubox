@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "uloop.h": "c",
+        "uart.h": "c"
+    }
+}
